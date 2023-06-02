@@ -37,7 +37,8 @@ Look at the following javascript code:
   });
   
   function greeting(name) {
-    console.log(`Hello, ${name}!`);
+    console.log(`Hello, ${name}!`) =>
+    name.ToUppse
     readline.close();
   }
   
@@ -46,10 +47,19 @@ Look at the following javascript code:
   }
   
   processUserInput(greeting);
-````
-1. Look at the code above and try to explain what the code does. (apart from the first 4 lines)
-2. Run the processUserInput function with a different callback (use lambda here) to console.log the name in uppercase.
-3. Run the processUserInput function with a different callback (use lambda here) to console.log the length of the name
+```
+Q. Look at the code above and try to explain what the code does. (apart from the first 4 lines)
+
+Q. Run the processUserInput function with a different callback (use lambda here) to console.log the name in uppercase.
+
+Q. Run the processUserInput function with a different callback (use lambda here) to console.log the length of the name
+
+A.'processUserInput' asks the user what their name is and includes the callback 'greeting', which will greet the user as the name they submitted
+
+A. \Fullstack-Typescript-exercises\week1_js\week1ce1.js
+
+A. \Fullstack-Typescript-exercises\week1_js\week1ce2.js
+
 
 ## Class Exercise 2
 
@@ -63,16 +73,40 @@ function multiply(x, y) {
   return x * y;
 }
 
+const substract = (x, y) => x - y;
+
 function operateOnNumbers(operator, x, y) {
   return operator(x, y);
 }
 
 console.log(operateOnNumbers(add, 3, 4));   // 7
 console.log(operateOnNumbers(multiply, 3, 4));   // 12
-````
-1. Look at the code above and try to explain what the code does.
-2. Run the operateOnNumbers function with a different operator (use lambda here) to subtract the numbers.
-3. Based on above code example write a function that takes two functions and an array of numbers, and returns an array with the result of applying each function to each number in the array. E.g. lift to the power of 2 and then divide by 10 or something like that.
+console.log(operateOnNumbers(subtract, 4, 3)); //1
+```
+Q. Look at the code above and try to explain what the code does.
+
+Q. Run the operateOnNumbers function with a different operator (use lambda here) to subtract the numbers.
+
+Q. Based on above code example write a function that takes two functions and an array of numbers, and returns an array with the result of applying each function to each number in the array. E.g. lift to the power of 2 and then divide by 10 or something like that.
+
+
+A. the code consists of two functions to either 'add' or 'multiply' two given variables in the parameter and returns the sum.
+the operateOnNumbers function takes the callback 'operator' in addition to two variables in the parameter.
+the function then returns the operator with the two varibles in its parameter
+
+A. week1_js\week1ce2.js
+
+A. week1_js\week1ce2.js
+
+
+
+
+
+
+
+
+
+
 
 ### How to use callbacks
 
