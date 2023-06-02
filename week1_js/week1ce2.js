@@ -20,8 +20,8 @@ function add(x, y) {
 
  const multiplySubtractByNineteen = (arr) =>{
     const multiplied = multiplyByNineteen(arr)
-    const subtracted = subtractByNineteen(multiplied)
-    return subtracted;
+    const sum = subtractByNineteen(multiplied)
+    return sum;
     
  }
 
@@ -34,4 +34,4 @@ function add(x, y) {
   console.log(operateOnNumbers(add, 3, 4));   // 7
   console.log(operateOnNumbers(multiply, 3, 4));  // 12
   console.log(operateOnNumbers(subtract, 4,3)); // 1
-  console.log(multiplySubtractByNineteen(arr))
+  console.log(multiplySubtractByNineteen(arr)) // [ 0,  19,  38,  57,  76,95, 114, 133, 152, 171 ]
