@@ -1,12 +1,9 @@
 
-const {Navigator} = require("node-navigator");
-const navigator = new Navigator();
-
 function getLocation() {
     return new Promise(function (resolve, reject) {
         try {
             navigator.geolocation.getCurrentPosition(function (position) {
-                resolve(position);
+                resolve(position.coords);
             });
         } catch (e) {
             reject(new Error(e));
@@ -14,7 +11,6 @@ function getLocation() {
     });
 }
 
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function getWeather(coords) {
     return new Promise(function (resolve, reject) {
@@ -26,7 +22,7 @@ function getWeather(coords) {
     req.open('GET', url);
     req.onload = function () {
         if (req.status === 200) {
-            resolve(JSON.parse(req.responseText));
+            resolve(JSON.parse(req.response));
         } else {
             reject(new Error(req.statusText));
         }
@@ -47,9 +43,11 @@ async function weather() {
       const coords = await getLocation();
       const weather = await getWeather(coords);
       console.log(weather);
+      document.getElementById('weather').innerHTML = weather.main.temp + ' ' + weather.weather[0].description;
     } catch (error) {
       console.error("Error:", error.message);
     }
   }
   
+
   weather();
