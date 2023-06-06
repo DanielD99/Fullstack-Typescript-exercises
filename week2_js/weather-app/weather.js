@@ -1,4 +1,3 @@
-
 function getLocation() {
     return new Promise(function (resolve, reject) {
         try {
