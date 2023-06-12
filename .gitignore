@@ -44,7 +44,8 @@
 # .idea/modules
 # *.iml
 # *.ipr
-
+.gist
+.node_modules
 # CMake
 cmake-build-*/
 

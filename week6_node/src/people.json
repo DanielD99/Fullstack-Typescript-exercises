@@ -1,0 +1,28 @@
+{
+    "people": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "age": 30,
+        "occupation": "Engineer"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "age": 25,
+        "occupation": "Designer"
+      },
+      {
+        "id": 3,
+        "name": "Michael Johnson",
+        "age": 35,
+        "occupation": "Manager"
+      },
+      {
+        "id": 4,
+        "name": "steve",
+        "age": 3,
+        "occupation": "steve stuff"
+      }
+    ]
+  }

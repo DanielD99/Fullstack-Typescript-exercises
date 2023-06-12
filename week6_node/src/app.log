@@ -1,0 +1,6 @@
+[2023-06-12T16:58:17.477] [DEBUG] default - Some debug messages
+[2023-06-12T16:58:17.479] [INFO] default - Some info messages
+[2023-06-12T16:58:17.479] [WARN] default - Some warning messages
+[2023-06-12T16:58:17.480] [ERROR] default - Some error messages
+[2023-06-12T16:58:17.480] [FATAL] default - Some fatal messages
+[2023-06-12T17:28:37.989] [INFO] default - handling requests for /
