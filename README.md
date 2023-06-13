@@ -1,3 +1,8 @@
+Fullstack typescript 
+Daniel
+________
+Some of the exercises can partially be found in the readMe.md files from the earlier weeks, whilst the majority of the content can be found in their respective folders as small projects within the repository.
+
 # course material
 
 ## Schedule
