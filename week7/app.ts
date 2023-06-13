@@ -24,25 +24,4 @@ app.use('/api/cars/v1', router)
 
 
 
-// app.get("/", (req, res) => {
-
-//     res.status(200)
-//         .json({
-//             status: "success",
-//             message: "Hello World"
-//         })
-// });
-
-// app.post("/", (req, res) => {
-
-//     const jsonData = req.body;
-//     console.log()
-//     res.status(201)
-//         .json({
-//             status: "success",
-//             data: jsonData
-//         })
-// })
-
-
 export default app;
