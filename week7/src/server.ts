@@ -1,18 +1,15 @@
 import express from 'express';
-import mongoose, { ConnectOptions } from 'mongoose';
+import mongoose from 'mongoose';
 import app from '../app';
 
 const PORT = process.env.PORT;
 
 //connect to db
 mongoose
-    .connect('my future db goes here', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+.connect('my future db goes here')
     .then(()=>{
         console.log('Connected to the database');
-        // start the servers
+        // start server
         app.listen(PORT, ()=>{
             console.log(' server started on port ${PORT}');
         })
