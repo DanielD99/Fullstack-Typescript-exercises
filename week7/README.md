@@ -8,7 +8,6 @@
 - Express
 - MongoDB Atlas
 - Mongoose
-- log4js
 - dotenv
 - morgan
 - nodemon

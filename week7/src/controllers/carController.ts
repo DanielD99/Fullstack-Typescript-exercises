@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import Car from '../models/carModel'
 
 const cars = [
   {
@@ -39,10 +40,10 @@ const cars = [
 ];
 
 //get all cars
-export const getCars = (req: Request, res: Response) => {
+export const getCars = async (req: Request, res: Response) => {
   try {
     //retrieve car data
-    res.json(cars);
+    const cars = await Car.find();
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ message: 'internal server error' });
@@ -50,11 +51,11 @@ export const getCars = (req: Request, res: Response) => {
 };
 
 //get specific car by id
-export const getCarById = (req: Request, res: Response) => {
+export const getCarById = async (req: Request, res: Response) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
     //find car by id
-    const car = cars.find((car) => car.id === id);
+    const car = await Car.findById(id);
 
     if (!car) {
       return res.status(404).json({ message: 'Car not found' });
@@ -67,18 +68,16 @@ export const getCarById = (req: Request, res: Response) => {
 };
 
 //create new car
-export const createCar = (req: Request, res: Response) => {
+export const createCar = async (req: Request, res: Response) => {
   try {
     const { id, model, year, price, color } = req.body;
+
     if (!id || !model || !year || !price || !color) {
       return res.status(400).json({ error: 'missing required fields' });
     }
 
-    //validate input
-
-    //add the new car to the array
-    const newCar = { id, model, year, price, color };
-    cars.push(newCar);
+    const newCar = new Car({ id, model, year, price, color });
+    await newCar.save();
     res.status(201).json(newCar);
   } catch (error) {
     console.error('Error:', error);
@@ -87,21 +86,21 @@ export const createCar = (req: Request, res: Response) => {
 };
 
 //update car partially by car id
-export const updateCar = (req: Request, res: Response) => {
+export const updateCar = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
   try {
-    const { id } = req.params;
     const updatedData = req.body;
 
     //find car by ID
-    const car = cars.find((car) => car.id === id);
-
+    const car = await Car.findById(id);
     if (!car) {
       return res.status(404).json({ message: 'Car not found' });
     }
 
     //update car data
     Object.assign(car, updatedData);
-
+    await car.save();
     res.json(car);
   } catch (error) {
     console.error('Error:', error);
@@ -110,20 +109,19 @@ export const updateCar = (req: Request, res: Response) => {
 };
 
 //Delete a car by ID
-export const deleteCar = (req: Request, res: Response) => {
+export const deleteCar = async (req: Request, res: Response) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
 
     //Find car index by ID
-    const carIndex = cars.findIndex((car) => car.id === id);
+    const car = await Car.findById(id);
 
-    if (carIndex === -1) {
+    if (!car) {
       return res.status(404).json({ message: 'Car was not found' });
     }
 
     //Remove car from the array
-    const deletedCar = cars.splice(carIndex, 1)[0];
-
+    const deletedCar = await Car.findByIdAndRemove(id);
     res.json(deletedCar);
   } catch (error) {
     console.error('Error:', error);
